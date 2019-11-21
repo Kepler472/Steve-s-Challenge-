@@ -1,0 +1,5 @@
+Costel, 3000, 4, 150
+Dorel, 1200, 3, 100
+Ghibanel, 1000, 2, 78
+Gigel, 769, 1, 60
+Gregorel, 479, 0, 0

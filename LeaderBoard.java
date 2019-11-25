@@ -31,15 +31,14 @@ public class LeaderBoard {
 				
 			if(searchedUser == null) {
 				board.add(user);
-				FileHandler.exportProfiles(this);
 			}else {
 				if(compareScore(user, searchedUser) == user) {
 					board.remove(searchedUser);
 					board.add(user);
-					FileHandler.exportProfiles(this);
-
 				}
 			}
+			
+			FileHandler.exportProfiles(this);
 		}
 		
 	}
@@ -74,6 +73,14 @@ public class LeaderBoard {
 			}
 		}
 		return null;
+	}
+	
+	public boolean hasProfile(String name) {
+		if(search(name)!=null) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	/**

@@ -1,5 +1,7 @@
-Costel, 3000, 4, 150
-Dorel, 1200, 3, 100
-Ghibanel, 1000, 2, 78
-Gigel, 769, 1, 60
-Gregorel, 479, 0, 0
+Costel, 12000, 100, 3, 12345
+Dorel, 1200, 100, 3, 23456
+Ghibanel, 1000, 78, 2, 34567
+Gregorel, 0, 0, 0, 56789
+Gigel, 769, 60, 1, 45678
+Acrylic, 0, 0, 0, pula
+Cretinel, 0, 0, 0, pula

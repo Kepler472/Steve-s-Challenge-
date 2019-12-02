@@ -15,7 +15,8 @@ public class FileHandler {
 	}
 	
 	/**
-	 * 
+	 * This function overwrites the profile file with the
+	 * modification made in the leaderboard
 	 * @param board
 	 */
 	public static void exportProfiles(LeaderBoard board) {
@@ -23,7 +24,7 @@ public class FileHandler {
 		BufferedWriter writer = null;
 		
 		try {
-			writer = new BufferedWriter(new FileWriter(file));
+			writer = new BufferedWriter(new FileWriter(file,false));
 			String str = "";
 			
 			for(UserProfile elem:board.getBoard()) {
@@ -42,19 +43,67 @@ public class FileHandler {
 	}
 	
 	/**
+	 * This method appends the newly created profile to the file
+	 * @param user This is the user to be added
+	 */
+	public static void appendProfile(UserProfile user) {
+		
+		BufferedWriter writer = null;
+		
+		try {
+			if(!hasLine(user.toFile())) {
+				writer = new BufferedWriter(new FileWriter(file,true));
+				writer.newLine();
+				writer.write(user.toFile());
+				writer.flush();
+				writer.close();
+			}
+		}catch(IOException e) {
+			System.out.println("Error mate! (export);");
+			System.exit(0);
+		}
+	}
+	
+	/**
+	 * hasLine checks if the file has a given line
+	 */
+	public static boolean hasLine(String lineSearched) {
+		Scanner in = null;
+		
+		try {
+			in = new Scanner(file);
+			
+		}catch(FileNotFoundException e) {
+			System.out.println("Could not open file.");
+			System.exit(0);
+		}
+		boolean found = false;
+		
+		while(in.hasNextLine() && found == false) {
+			String line = in.nextLine();
+			if(lineSearched.equals(line)) {
+				found = true;
+			}
+		}
+		
+		return found;
+	}
+	
+	/**
 	 * 
 	 * @param input
 	 * @return
 	 */
-	public static UserProfile readProfile(Scanner input) {
+	private static UserProfile readProfile(Scanner input) {
 		
 		String username = input.next();
 		int highscore = input.nextInt();
+		int levelCompletion = input.nextInt();
+		int totalTime = input.nextInt();
 		
-		UserProfile user = new UserProfile(username,highscore);
+		UserProfile user = new UserProfile(username,highscore,levelCompletion,totalTime);
 		
-		user.setLevelCompletion(input.nextInt());
-		user.setTotalTime(input.nextInt());
+		user.setPassword(input.next());
 		
 		return user;
 	}
@@ -64,7 +113,7 @@ public class FileHandler {
 	 * @param in
 	 * @param board
 	 */
-	public static void importProfiles(Scanner in, LeaderBoard board) {
+	private static void importProfiles(Scanner in, LeaderBoard board) {
 		
 		Scanner input = null;
 		

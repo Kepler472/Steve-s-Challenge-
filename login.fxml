@@ -5,53 +5,75 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@../../../jh/src/sample/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="971.0" style="-fx-background-color: #bbdefb;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
-      <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="47.0" prefHeight="104.0" prefWidth="167.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="757.0" AnchorPane.topAnchor="0.0">
          <padding>
-            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
          <children>
-            <HBox alignment="TOP_RIGHT" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-width: 0px 2px  0px  0px;" HBox.hgrow="ALWAYS">
-               <children>
-                  <VBox prefHeight="49.0" prefWidth="296.0">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="91.0" style="-fx-font-family: Quicksand; -fx-font-weight: bolder; -fx-fill: white; -fx-font-size: 2.4em; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: blue;" text="Login" />
-                     </children>
-                  </VBox>
-                  <Button fx:id="signUp" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-width: 0px 0px  2px  0px; -fx-text-fill: black; -fx-border-color: blue; -fx-font-size: 1.3em; -fx-font-weight: bold;" text="Signup">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="signIn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: black; -fx-border-width: 0px 0px  2px  0px; -fx-border-color: blue; -fx-font-size: 1.3em; -fx-font-weight: bold;" text="Signin">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
+            <Label prefHeight="64.0" prefWidth="118.0" style="-fx-font-family: Quicksand; -fx-font-size: 3.5em; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: black; -fx-background-color: transparent;" text="Login" textFill="#f5f5f5">
+               <effect>
+                  <Glow />
+               </effect></Label>
          </children>
       </HBox>
-      <VBox alignment="CENTER" layoutX="181.0" layoutY="124.0" prefHeight="200.0" prefWidth="250.0" styleClass="bodybg">
+      <VBox layoutX="102.0" layoutY="254.0" prefHeight="186.0" prefWidth="190.0">
          <children>
-            <HBox />
-            <TextField promptText="Username" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
-            <PasswordField alignment="BOTTOM_LEFT" prefHeight="77.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: transaprent;" />
+            <Label prefHeight="124.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-font-family: Quicksand; -fx-font-size: 2.6em; -fx-font-weight: bold;" text="Username:" textFill="#e8e2e2">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label style="-fx-font-size: 2.6em; -fx-font-weight: bold; -fx-font-family: Quicsands; -fx-background-color: transparent;" text="Password:" textFill="#e8e2e2" />
          </children>
       </VBox>
-      <Label layoutX="41.0" layoutY="164.0" text="Username:">
+      <VBox layoutX="277.0" layoutY="289.0" prefHeight="58.0" prefWidth="300.0">
+         <children>
+            <TextField fx:id="usernameField" prefHeight="32.0" prefWidth="310.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: #e8e2e2; -fx-text-fill: black;">
+               <font>
+                  <Font name="Consolas" size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox layoutX="427.0" layoutY="428.0" prefHeight="28.0" prefWidth="310.0" />
+      <PasswordField fx:id="passwordField" layoutX="277.0" layoutY="373.0" prefHeight="46.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: #e8e2e2; -fx-text-fill: black;">
          <font>
-            <Font size="29.0" />
-         </font></Label>
-      <Label layoutX="45.0" layoutY="244.0" text="Password:">
-         <font>
-            <Font size="29.0" />
-         </font></Label>
+            <Font name="Consolas" size="25.0" />
+         </font>
+      </PasswordField>
+      <HBox alignment="TOP_RIGHT" layoutX="186.0" layoutY="223.0" />
+      <HBox alignment="CENTER" layoutX="804.0" layoutY="37.0" prefHeight="49.0" prefWidth="157.0" style="-fx-background-color: transparent;">
+         <children>
+            <Button fx:id="signUp" alignment="CENTER" mnemonicParsing="false" onAction="#changeToSignUpPage" prefHeight="46.0" prefWidth="143.0" style="-fx-font-weight: bold;" stylesheets="@style.css" text="Signup" textFill="#02090a47">
+               <effect>
+                  <Bloom />
+               </effect>
+               <opaqueInsets>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="659.0" layoutY="37.0" prefHeight="54.0" prefWidth="143.0" style="-fx-background-color: transparent;">
+         <children>
+            <Button fx:id="signIn" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleSignIn" prefHeight="38.0" prefWidth="154.0" style="-fx-font-weight: bold;" stylesheets="@style.css" text="Signin" textFill="#70c8ff">
+               <effect>
+                  <Bloom />
+               </effect>
+               <opaqueInsets>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

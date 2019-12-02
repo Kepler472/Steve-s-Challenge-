@@ -1,22 +1,14 @@
-import java.io.IOException;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 public class Main {
 	
-	
-	
-
 	public static void main(String[] args) {
         
         LeaderBoard board = new LeaderBoard();
-        UserProfile profile = new UserProfile("Gregorel",479);
+        UserProfile profile = new UserProfile("Gregorel","56789");
         
         board.addUser(profile);
-        
+        board.addUser(new UserProfile("Costel", 12000, 3, 100));
         System.out.println(board.toString());
         System.out.println("This was just a test \n");
         FileHandler.getFile();

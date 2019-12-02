@@ -5,67 +5,76 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="TEXT_AREA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="971.0" style="-fx-background-color: transparent;" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterController">
    <children>
-      <HBox alignment="TOP_CENTER" layoutX="200.0" layoutY="30.0" prefHeight="108.0" prefWidth="212.0" style="-fx-border-image-width: red;" AnchorPane.bottomAnchor="262.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="188.0">
+      <HBox alignment="TOP_CENTER" layoutX="749.0" layoutY="3.0" prefHeight="108.0" prefWidth="215.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-width: 0px 2px  0px  0px;">
          <children>
-            <Label prefHeight="68.0" prefWidth="353.0" style="-fx-font-family: Quicksand; -fx-font-size: 4.0em; -fx-font-weight: border; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: blue; -fx-fill: white;" text="Register" textFill="#17334a">
-               <font>
-                  <Font size="46.0" />
-               </font>
-            </Label>
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </HBox>
-      <VBox alignment="CENTER" layoutX="88.0" layoutY="99.0" prefHeight="200.0" prefWidth="363.0" AnchorPane.bottomAnchor="131.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="99.0">
-         <children>
-            <HBox fillHeight="false" prefHeight="52.0" prefWidth="347.0">
-               <children>
-                  <Label alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="253.0" text="Username:">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <TextField focusTraversable="false" prefHeight="39.0" prefWidth="347.0" promptText="Username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: black; -fx-background-color: transparent;" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="4.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <HBox layoutX="106.0" layoutY="209.0" prefHeight="100.0" prefWidth="388.0">
-         <children>
-            <Label prefHeight="40.0" prefWidth="134.0" text=" Password:">
-               <font>
-                  <Font size="28.0" />
-               </font>
-            </Label>
-            <PasswordField prefHeight="38.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px;">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </PasswordField>
-         </children>
-      </HBox>
-      <HBox layoutX="248.0" layoutY="274.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-width: 0px 2px  0px  0px;">
-         <children>
-            <Button alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 0px 0px  1px  0px; -fx-text-fill: black; -fx-border-color: white; -fx-font-size: 1.3em; -fx-font-weight: bold; -fx-background-color: #F0FFFF.; -fx-background-radius: 100;" text="Signup" />
+            <Button fx:id="signup" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#handleSignUpRequest" prefHeight="39.0" prefWidth="146.0" stylesheets="@style.css" text="Signup">
+               <effect>
+                  <Glow />
+               </effect></Button>
          </children>
          <padding>
             <Insets top="30.0" />
          </padding>
       </HBox>
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="40.0" prefHeight="71.0" prefWidth="284.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="71.0" prefWidth="182.0" style="-fx-font-family: Quicksand; -fx-font-size: 3.5em; -fx-font-weight: border; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: #e8e2e2;" text="Register" textFill="#17334a">
+               <font>
+                  <Font size="46.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+         </children></VBox>
+      <VBox alignment="CENTER" layoutX="433.0" layoutY="206.0" prefHeight="39.0" prefWidth="251.0" />
+      <VBox layoutX="81.0" layoutY="334.0" prefHeight="46.0" prefWidth="182.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="182.0" style="-fx-background-color: transparent; -fx-font-size: 2.6em; -fx-text-fill: #e8e2e2; -fx-font-weight: bold;" text=" Password:">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children></VBox>
+      <VBox alignment="CENTER" layoutX="279.0" layoutY="248.0" prefHeight="40.0" prefWidth="236.0">
+         <children>
+            <TextField fx:id="usernameField" accessibleRole="PASSWORD_FIELD" alignment="BOTTOM_LEFT" focusTraversable="false" prefHeight="39.0" prefWidth="237.0" promptText="Username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: black; -fx-background-color: transparent; -fx-text-fill: black;">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox layoutX="89.0" layoutY="245.0" prefHeight="46.0" prefWidth="174.0">
+         <children>
+            <Label alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="174.0" style="-fx-font-family: Quicksand; -fx-font-size: 2.6em; -fx-text-fill: #e8e2e2; -fx-font-weight: bold; -fx-background-color: transparent;" text="Username:">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="263.0" layoutY="337.0" prefHeight="40.0" prefWidth="251.0">
+         <children>
+            <PasswordField fx:id="passwordField" accessibleRole="TEXT_FIELD" prefHeight="39.0" prefWidth="251.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0px 0px 1px 0px; -fx-text-fill: black;">
+               <font>
+                  <Font name="Consolas" size="17.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </HBox>
+      <HBox layoutX="520.0" layoutY="548.0" prefHeight="43.0" prefWidth="108.0" />
+      <Button fx:id="backButton" layoutX="812.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBackButtonPress" prefHeight="43.0" prefWidth="106.0" stylesheets="@style.css" text="Back">
+         <effect>
+            <Glow />
+         </effect></Button>
    </children>
 </AnchorPane>

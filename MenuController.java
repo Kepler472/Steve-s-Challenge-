@@ -8,13 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
-
 
 public class MenuController extends Application{
 	
@@ -26,20 +24,22 @@ public class MenuController extends Application{
     void initialize() {
 
     }
-   
+    @FXML
     private Button play;
-    
+    @FXML
     private Button settings;
-    
+    @FXML
+    private Button myProfile;
+    @FXML
+    private Button leaderboard;
+    @FXML
     private Button exit;
-    
-    private LeaderBoard leaderBoard = new LeaderBoard();
-    
+   
     /**
      * This method runs the game
      */
-    public void handleButtonBasic() {
-    	play.setText("wHeRe iS tHe GaMe?");
+    public void handlePlayButtonPress() {
+    	//should be a play game function here
     }
     
     public void showExitDialog() {
@@ -60,7 +60,7 @@ public class MenuController extends Application{
     	
     	Scene scene = new Scene(hbox, 150, 100);
     	
-    	popup.setTitle("Are you ssure you want to exit?");
+    	popup.setTitle("Are you sure you want to exit?");
     	popup.setScene(scene);
     	popup.show();
     }
@@ -72,7 +72,7 @@ public class MenuController extends Application{
      */
     public void changeToSettingsWindow(ActionEvent event) throws IOException{
     	
-    	Parent settingsWindow = FXMLLoader.load(getClass().getResource("SettingsMenu.fxml"));
+    	Parent settingsWindow = FXMLLoader.load(getClass().getResource("settings.fxml"));
     	Scene scene = new Scene(settingsWindow);
     	
     	Stage settings = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -80,27 +80,38 @@ public class MenuController extends Application{
     	settings.setScene(scene);
     	settings.show();
     }
-
-    public void start(Stage stage) throws IOException{
+    
+    /**
+     * This method changes the scene to the Settings window
+     * @param event
+     * @throws IOException
+    */
+    public void changeToLeaderBoardWindow(ActionEvent event) throws IOException{
     	
+    	Parent leaderboardWindow = FXMLLoader.load(getClass().getResource("leaderboard.fxml"));
+    	Scene scene = new Scene(leaderboardWindow);
+    	
+    	Stage leaderboard = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	
+    	
+    	leaderboard.setScene(scene);
+    	leaderboard.show();
+    }
+  
+    public void start(Stage primaryStage) throws IOException{
     	Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-    	
     	Scene scene = new Scene(root);
     	
-    	stage.setScene(scene);
-    	
-    	stage.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent ->{
+    	primaryStage.setScene(scene);
+    	primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent ->{
     		if(keyEvent.getCode() == KeyCode.ESCAPE) {
     			showExitDialog();
     		}
     	});
-    	
-    	stage.show();
+    	primaryStage.show();
     }
     
     public static void main(String[] args) {
     	launch(args);
     }
-    
-    
 }

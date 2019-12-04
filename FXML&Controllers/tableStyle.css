@@ -1,0 +1,20 @@
+.table-view{
+    -fx-background-color: red;
+    -fx-fill: transparent;
+}
+
+.table-view.column-header-background{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 0 10 0;
+    -fx-padding: 0 0 10 0;
+
+}
+.table-view.column-header, .table-view.filler{
+    -fx-size:40;
+    -fx-border-width: 0 0 0 10;
+    -fx-background-color: transparent;
+}
+
+.table-view.column-header.label{
+    -fx-fill: white;
+}

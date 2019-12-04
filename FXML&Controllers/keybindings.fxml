@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="662.0" prefWidth="971.0" styleClass="root1" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KeyBindingController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="151.0" prefWidth="407.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="183.0" style="-fx-font-size: 3.4em; -fx-background-color: transparent; -fx-font-weight: bold;" text="Keybinds" textFill="WHITESMOKE">
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+         </children>
+      </HBox>
+      <Label layoutX="287.0" layoutY="398.0" />
+      <VBox layoutX="570.0" layoutY="225.0" prefHeight="305.0" prefWidth="238.0">
+         <children>
+            <HBox prefHeight="101.0" prefWidth="238.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="106.0" prefWidth="267.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="Key" textFill="WHITESMOKE" />
+                  <HBox prefHeight="30.0" prefWidth="145.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="31.0" prefWidth="283.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="182.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="W \ Arrow up" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+            <HBox prefHeight="32.0" prefWidth="217.0">
+               <children>
+                  <HBox prefHeight="39.0" prefWidth="224.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="221.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="S \ Arrow down" textFill="WHITESMOKE" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="45.0" prefWidth="199.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="194.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="A \ Arrow left" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="209.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="24.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="D" textFill="WHITESMOKE" />
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="17.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="\\" textFill="WHITESMOKE" />
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="152.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="Arrow right" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="85.0" layoutY="225.0" prefHeight="305.0" prefWidth="238.0">
+         <children>
+            <HBox prefHeight="106.0" prefWidth="238.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="141.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="Action" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+            <HBox prefHeight="26.0" prefWidth="181.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="122.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="Move up" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+            <HBox prefHeight="39.0" prefWidth="224.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="151.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="Move down" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+            <HBox prefHeight="13.0" prefWidth="240.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="121.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="Move left" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+            <HBox prefHeight="6.0" prefWidth="238.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="141.0" style="-fx-font-size: 2.4em; -fx-background-color: transparent;" text="Move right" textFill="WHITESMOKE" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox layoutX="689.0" layoutY="49.0" prefHeight="45.0" prefWidth="238.0">
+         <children>
+            <ToggleButton fx:id="toggleKeys" mnemonicParsing="false" prefHeight="54.0" prefWidth="257.0" styleClass="button" stylesheets="@style.css" text="Switch Keys" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="781.0" layoutY="572.0" prefHeight="100.0" prefWidth="207.0">
+         <children>
+            <Button fx:id="back" onAction="#backToMainMenu" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" styleClass="button1" stylesheets="@style.css" text="Back">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

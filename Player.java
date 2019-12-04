@@ -1,44 +1,104 @@
-import java.util.ArrayList;
+public class Player extends Creature{
+	
+	private int tokenCount;
+	private int brownKeyCount;
+	private int whiteKeyCount;
+	private int blueKeyCount;
+	private boolean fireBoots;
+	private boolean flippers;
+	//Sprite(for alive and for dead)
+	
+	public Player(int[] position) {
+		super(position);
+		tokenCount = 0;
+		brownKeyCount = 0;
+		whiteKeyCount = 0;
+		blueKeyCount = 0;
+		fireBoots = false;
+		flippers = false;
+		//Set sprite to alive
+	}
 
-public class Player extends Entity{
-	private ArrayList<Object> itemList=new ArrayList<Object>();
-	private boolean isAlive = true;
-	private int score = 0;
-	private int curentLevel=0;
-	
-	public Player(int xPos, int yPos){
-		this.xPos = xPos;
-		this.yPos = yPos;
-		this.itemList = itemList;
-		this.isAlive = isAlive;
-		this.score = score;
-		this.curentLevel = curentLevel;
+	public void clearInventory() {
+		tokenCount = 0;
+		brownKeyCount = 0;
+		whiteKeyCount = 0;
+		blueKeyCount = 0;
+		giveFireBoots(false);
+		giveFlippers(false);
 	}
 	
-	public ArrayList<Object> getInv(){
-		return(itemList);
+	public boolean hasEnoughTokens(int amount) {
+		if (tokenCount >= amount) {
+			tokenCount -= amount;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
-	public void addInv(Object item){
-		itemList.add(item);
+	public void addToken() {
+		tokenCount++;
 	}
 	
-	public void removeInvItem(Object item){
-		itemList.remove(item);
+	public boolean hasBrownKey() {
+		if (brownKeyCount > 0) {
+			brownKeyCount--;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void addBrownKey() {
+		brownKeyCount++;
+	}
+
+	public boolean hasWhiteKey() {
+		if (whiteKeyCount > 0) {
+			whiteKeyCount--;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void addWhiteKey() {
+		whiteKeyCount++;
+	}
+
+	public boolean hasBlueKey() {
+		if (blueKeyCount > 0) {
+			blueKeyCount--;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void addBlueKey() {
+		blueKeyCount++;
 	}
 	
-	public void removeAllInv(){
-		itemList.clear();
+
+	public boolean hasFireBoots() {
+		return fireBoots;
 	}
+
+	public void giveFireBoots(boolean fireBoots) {
+		this.fireBoots = fireBoots;
+	}
+
+	public boolean hasFlippers() {
+		return flippers;
+	}
+
+	public void giveFlippers(boolean flippers) {
+		this.flippers = flippers;
+	}
+
 	
-	public void rendering(){
-		
-	}
 	
-	public void changeWorld(){
-		
-	}
-	public void getInput(){
-		
-	}
+
+
 }

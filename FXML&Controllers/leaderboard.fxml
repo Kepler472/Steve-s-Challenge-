@@ -15,12 +15,6 @@
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="305.0" style="-fx-font-family: Quicksand; -fx-font-size: 3.5em; -fx-border-color: transparent; -fx-font-weight: bold;" text="Leaderboard" textFill="WHITESMOKE" />
          </children>
       </HBox>
-      <TableView fx:id="leaderboardTable" layoutX="209.0" layoutY="187.0" prefHeight="384.0" prefWidth="580.0" styleClass="filler" stylesheets="@tableStyle.css">
-        <columns>
-          <TableColumn fx:id="username" prefWidth="286.0" text="Usename" />
-          <TableColumn fx:id="highscore" prefWidth="299.0" text="Score" />
-        </columns>
-      </TableView>
       <HBox alignment="CENTER" layoutX="742.0" layoutY="539.0" prefHeight="153.0" prefWidth="266.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="43.0" prefWidth="125.0" styleClass="button1" stylesheets="@style.css" text="Back">
@@ -28,6 +22,16 @@
                   <Glow />
                </effect>
             </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="203.0" layoutY="214.0" opacity="0.39" prefHeight="335.0" prefWidth="649.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="leaderboardTable" prefHeight="335.0" prefWidth="680.0" style="-fx-font-family: Quicksand; -fx-font-size: 3.0em;" styleClass="table-view" stylesheets="@tableStyle.css">
+              <columns>
+                <TableColumn fx:id="username" prefWidth="330.0" text="Usename" />
+                <TableColumn fx:id="highscore" prefWidth="318.0" text="Score" />
+              </columns>
+            </TableView>
          </children>
       </HBox>
    </children>

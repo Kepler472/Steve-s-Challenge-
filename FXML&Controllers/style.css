@@ -12,6 +12,12 @@
     -fx-background-size: cover;
 }
 
+
+.root4{
+    -fx-background-image: url('logo.png');
+    -fx-background-size: cover;
+}
+
 .button{
     -fx-font-family: Quicksand;
     -fx-font-weight : bold;

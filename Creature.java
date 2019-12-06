@@ -1,18 +1,23 @@
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 public abstract class Creature {
 	
 	protected int x;
 	protected int y;
-	protected char[][] map;
 	
+	protected String[][] map;
+	
+	protected Image image;
 	/**
 	 * super constructor (obviously)
 	 * @param position
 	 * @param map
 	 */
-	public Creature (int[] position, char[][] map) {
+	public Creature (int[] position, String[][] map, String img) {
 		setPosition(position);
 		this.map = map;
+		this.image = new Image(img);
 	}
 	
 	/**
@@ -81,25 +86,49 @@ public abstract class Creature {
 		
 		boolean[] adjancentWalls = new boolean[4];
 		
-		if(map[x][y - 1] == '*') {
+		if(map[x][y - 1] == "*") {
 			adjancentWalls[0] = true;
 		}
 		
-		if(map[x + 1][y] == '*') {
+		if(map[x + 1][y] == "*") {
 			adjancentWalls[1] = true;
 		}
 		
-		if(map[x][y + 1] == '*') {
+		if(map[x][y + 1] == "*") {
 			adjancentWalls[2] = true;
 		}
 		
-		if(map[x - 1][y] == '*') {
+		if(map[x - 1][y] == "*") {
 			adjancentWalls[3] = true;
 		}
 		
 		return adjancentWalls;
 	}
 	
+	/**
+	 * 
+	 */
+	public String[]	getAdjancentTiles() {
+		String[] adjancentTiles = new String[4];
+		
+		if(map[x][y - 1] != " ") {
+			adjancentTiles[0] = map[x][y - 1];
+		}
+		
+		if(map[x + 1][y] != " ") {
+			adjancentTiles[1] = map[x + 1][y];
+		}
+		
+		if(map[x][y + 1] != " ") {
+			adjancentTiles[2] = map[x][y + 1];
+		}
+		
+		if(map[x - 1][y] != " ") {
+			adjancentTiles[3] = map[x - 1][y];
+		}
+		
+		return adjancentTiles;
+	}
 	/**
 	 * Checks if there are no walls around the creature
 	 * @param array
@@ -113,6 +142,10 @@ public abstract class Creature {
 	    	}
 	    }
 	    return true;
+	}
+	
+	public void draw(GraphicsContext gc) {
+		gc.drawImage(image, x, y);
 	}
 	
 }

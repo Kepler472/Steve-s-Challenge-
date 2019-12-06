@@ -19,13 +19,41 @@ public class Player extends Creature{
 		//Set sprite to alive
 	}
 
+	public void setInventory(int[] inventory){
+		
+		tokenCount = inventory[0];
+		brownKeyCount = inventory[1];
+		whiteKeyCount = inventory[2];
+		blueKeyCount = inventory[3];
+		
+		if(inventory[4] == 1){
+			fireBoots = true;
+		}else {
+			fireBoots = false;
+		}
+		
+		if(inventory[5] == 1){
+			flippers = true;
+		}else {
+			flippers = false;
+		}
+	}
+	
+	public void getInventory(){
+		
+		int[] inv = new int[6];
+		inv[0] = tokenCount;
+		inv[1] = brownKeyCount;
+		inv[2] = whiteKeyCount;
+		inv[3] = blueKeyCount;
+		inv[4] = (fireBoots) ? 1 : 0;
+		inv[5] = (flippers) ? 1 : 0;
+	}
+	
 	public void clearInventory() {
-		tokenCount = 0;
-		brownKeyCount = 0;
-		whiteKeyCount = 0;
-		blueKeyCount = 0;
-		giveFireBoots(false);
-		giveFlippers(false);
+		
+		int[] inv = new int[6];
+		setInventory(inv);
 	}
 	
 	public boolean hasEnoughTokens(int amount) {
@@ -97,8 +125,10 @@ public class Player extends Creature{
 		this.flippers = flippers;
 	}
 
-	
-	
-
-
+	public String inventoryToString(){
+		
+		String str = "";
+		
+		return str;
+	}
 }

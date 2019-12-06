@@ -1,5 +1,4 @@
-import java.awt.Color;
-import java.awt.Graphics;
+import javafx.scene.input.KeyCode;
 
 public class Player extends Creature{
 	
@@ -9,69 +8,89 @@ public class Player extends Creature{
 	private int blueKeyCount;
 	private boolean fireBoots;
 	private boolean flippers;
-	private Game game;
-	
-	private boolean hasMoved;
 	//Sprite(for alive and for dead)
 	
-	public Player(Game game, float x, float y) {
-		super(x, y);
+	public Player(int[] position, String[][] map, String img) {
+		super(position, map, img);
 		tokenCount = 0;
 		brownKeyCount = 0;
 		whiteKeyCount = 0;
 		blueKeyCount = 0;
 		fireBoots = false;
 		flippers = false;
-		this.game = game;
-		hasMoved = false;
 		//Set sprite to alive
 	}
-	
-	public boolean hasMoved() {
-		return hasMoved;
-	}
-	
-	public void setMoved(boolean moved) {
-		hasMoved = moved;
-	}
 
-	@Override
-	public void update() {
-//		if(game.getKeyManager().up) {
-//			this.y -= 64;
-//			setMoved(true);
-//		}else if(game.getKeyManager().down) {
-//			y += 64;
-//			setMoved(true);
-//		}else if(game.getKeyManager().left) {
-//			this.x -= 64;
-//			setMoved(true);
-//		}else if(game.getKeyManager().right) {
-//			this.x += 64;
-//			setMoved(true);
-//		} else { 
-//			setMoved(false);
-//		}
+	public void setInventory(int[] inventory){
 		
+		tokenCount = inventory[0];
+		brownKeyCount = inventory[1];
+		whiteKeyCount = inventory[2];
+		blueKeyCount = inventory[3];
 		
+		if(inventory[4] == 1){
+			fireBoots = true;
+		}else {
+			fireBoots = false;
+		}
+		
+		if(inventory[5] == 1){
+			flippers = true;
+		}else {
+			flippers = false;
+		}
 	}
-
-	@Override
-	public void render(Graphics g) {
-		System.out.println("A");
-		//draw player, use an assets class for a sprite sheet.
-		g.setColor(Color.ORANGE);
-		g.fillOval((int) this.x, (int) this.y, 64, 64);
+	
+	public int[] getInventory(){
 		
+		int[] inv = new int[6];
+		
+		inv[0] = tokenCount;
+		inv[1] = brownKeyCount;
+		inv[2] = whiteKeyCount;
+		inv[3] = blueKeyCount;
+		inv[4] = (fireBoots) ? 1 : 0;
+		inv[5] = (flippers) ? 1 : 0;
+		
+		return inv;
 	}
+	
 	public void clearInventory() {
-		tokenCount = 0;
-		brownKeyCount = 0;
-		whiteKeyCount = 0;
-		blueKeyCount = 0;
-		giveFireBoots(false);
-		giveFlippers(false);
+		
+		int[] inv = new int[6];
+		setInventory(inv);
 	}
+	
+	public void move(KeyCode keyCode) {
+		
+		switch(keyCode) {
+			
+			case RIGHT:
+			case D:
+				x++;
+				break;
+				
+			case LEFT:
+			case A:
+				x--;
+				break;
+				
+			case UP:
+			case W:
+				y--;
+				break;
+				
+			case DOWN:
+			case S:
+				y++;
+				break;
+				
+			default:
+				break;
+		}
+	}
+	
+	
 	
 	public boolean hasEnoughTokens(int amount) {
 		if (tokenCount >= amount) {
@@ -130,27 +149,31 @@ public class Player extends Creature{
 		return fireBoots;
 	}
 
-	public void giveFireBoots(boolean fireBoots) {
-		this.fireBoots = fireBoots;
+	public void giveFireBoots() {
+		this.fireBoots = true;
 	}
 
 	public boolean hasFlippers() {
 		return flippers;
 	}
 
-	public void giveFlippers(boolean flippers) {
-		this.flippers = flippers;
+	public void giveFlippers() {
+		this.flippers = true;
 	}
 
-	public int getX() {
-		return (int) x;
+	public String inventoryToFile(){
+		
+		int[] inv = getInventory();
+		String str = "";
+		
+		for(int i = 0; i < inv.length;i++){
+			if(i == inv.length - 1) {
+				str += i;
+			}else {
+				str += i +", ";
+			}
+		}
+		return str;
 	}
 	
-	public int getY() {
-		return (int) y;
-	}
-	
-	
-
-
 }

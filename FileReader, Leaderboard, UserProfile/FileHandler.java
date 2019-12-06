@@ -3,10 +3,19 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-	private static final File file = new File("profiles.txt");
 	/*Make sure the file does not have empty lines at the beginning , 
 	 *nor in between the lines. 
 	 */
+	private static final File file = new File("profiles.txt");
+	private static String[][] map;
+	
+	/**
+	 * returns the map of the game
+	 * @return
+	 */
+	public static String[][] getMap(){
+		return map;
+	}
 	
 	/**
 	 * getFile prints the name of the file used
@@ -99,13 +108,21 @@ public class FileHandler {
 		
 		String username = input.next();
 		String password = input.next();
+		
 		int[] levelTimes = new int[3]; 
+		File[] saves = new File[3];
 		
 		for(int i = 0; i < levelTimes.length && input.hasNextInt(); i++) {
 			levelTimes[i] = input.nextInt();
 		}
 		
-		UserProfile user = new UserProfile(username,password,levelTimes);
+		int i = 0;
+		while(input.hasNext()) {
+			saves[i] = new File(input.next());
+			i++;
+		}
+		
+		UserProfile user = new UserProfile(username,password,levelTimes,saves);
 		
 		return user;
 	}
@@ -147,5 +164,64 @@ public class FileHandler {
 		
 		importProfiles(in, board);
 		in.close();
+	}
+	
+	/**
+	 * This method saves the player progress to a given slot
+	 * @param map
+	 */
+	public static void saveProgress(UserProfile user, int saveSlot, String[][] map, Player player) {
+		
+		if(user.getSave(saveSlot) == null) {
+			File saveFile = new File("C:\\Users\\horat\\eclipse-workspace\\Steve's Challenge\\" + user.getUsername() + saveSlot + ".txt"); 
+		}
+		
+		String str = "";
+		
+		int n = map.length;
+		int m = map[0].length;
+		
+		str += m + " " + n + mapToFile(map) + playerPositionToFile(player) 
+				+"\n" 	
+				+ "\n" + player.inventoryToFile(); 
+		
+		BufferedWriter writer = null;
+		
+		try {
+			writer = new BufferedWriter(new FileWriter(user.getSave(saveSlot),false));
+			
+			writer.write(str.trim());
+			writer.flush();
+			writer.close();
+			
+		}catch(IOException e) {
+			System.out.println("Error mate! (export);");
+			System.exit(0);
+		}
+	}
+	
+	/**
+	 * this method translates the map into a string, 
+	 * ready to be added to a file
+	 * @param map
+	 * @return string
+	 */
+	public static String mapToFile(String[][] map) {
+		
+		String str = "\n";
+		
+		for(int i = 0; i < map.length; i++) {
+			for(int j = 0; j < map[0].length; j++) {
+				str += map[i][j]; 
+			}
+			str += "\n";
+		}
+		
+		return str;
+	}
+	
+	
+	public static String playerPositionToFile(Player player) {
+		return "START," + player.getX() + "," + player.getY();
 	}
 }

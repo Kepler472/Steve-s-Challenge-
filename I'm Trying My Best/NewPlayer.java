@@ -85,46 +85,38 @@ public class NewPlayer extends Creature{
 		switch(keyCode) {
 			
 			case RIGHT:
-				if(!super.getAdjancentWalls()[1]) {
+				if(!getAdjancentWalls()[1]) {
 					if(noCollisionWithOtherObjects(1, keyCode)) {
 						setX(1);
 						System.out.println("RIGHT");
 					}
-					setX(1);
-					System.out.println("RIGHT");
 				}
 				break;
 				
 			case LEFT:
-				if(!super.getAdjancentWalls()[3]) {
+				if(!getAdjancentWalls()[3]) {
 					if(noCollisionWithOtherObjects(3, keyCode)) {
 						setX(-1);
 						System.out.println("LEFT");
 					}
-					setX(-1);
-					System.out.println("LEFT");
 				}
 				break;
 				
 			case UP:
-				if(!super.getAdjancentWalls()[0]) {
+				if(!getAdjancentWalls()[0]) {
 					if(noCollisionWithOtherObjects(0, keyCode)) {
 						setY(-1);
 						System.out.println("UP");
 					}
-					setY(-1);
-					System.out.println("UP");
 				}
 				break;
 				
 			case DOWN:
-				if(!super.getAdjancentWalls()[2]) {
+				if(!getAdjancentWalls()[2]) {
 					if(noCollisionWithOtherObjects(2, keyCode)) {
 						setY(1);
 						System.out.println("DOWN");
 					}
-					setY(1);
-					System.out.println("DOWN");
 				}
 				break;
 				
@@ -216,8 +208,6 @@ public class NewPlayer extends Creature{
 	 */
 	public void checkIfTileHasKeyOrToken(int positionToCheck, KeyCode keyCode) {
 		
-		
-		
 		if(getAdjancentTiles()[positionToCheck].charAt(0) == 'K'){
 			
 			char keyColour = getAdjancentTiles()[positionToCheck].charAt(3);
@@ -265,6 +255,10 @@ public class NewPlayer extends Creature{
 		}else if(boots.equals("Flippers")) {
 			giveFlippers();
 			removeObject(keyCode);
+		}else if(boots.equals("Boots")) {
+			giveFireBoots();
+			giveFlippers();
+			removeObject(keyCode);
 		}
 	}
 	
@@ -283,22 +277,22 @@ public class NewPlayer extends Creature{
 		
 			case RIGHT: 
 			case D:
-				map[x + 1][y] = "Floor";
+				map[getY()][getX()+ 1] = "Floor";
 				break;
 				
 			case LEFT: 
 			case A:
-				map[x-1][y] = "Floor";
+				map[getY()][getX()-1] = "Floor";
 				break;
 				
 			case UP: 
 			case W:
-				map[x][y-1] = "Floor";
+				map[getY()-1][getX()] = "Floor";
 				break;
 				
 			case DOWN: 
 			case S:
-				map[x][y+1] = "Floor";
+				map[getY()+1][getX()] = "Floor";
 				break;
 				
 			default:
@@ -373,6 +367,57 @@ public class NewPlayer extends Creature{
 
 	public void giveFlippers() {
 		this.flippers = true;
+	}
+	
+	public boolean[] getAdjancentWalls() {
+		
+		boolean[] adjancentWalls = new boolean[4];
+		
+		if(map[getY() - 1][getX()].equals("Wall")) {
+			adjancentWalls[0] = true;
+		}			
+	
+		if(map[getY()][getX() + 1].equals("Wall")) {
+			adjancentWalls[1] = true;
+		}
+			
+		if(map[getY() + 1][getX()].equals("Wall")) {
+			adjancentWalls[2] = true;
+		}
+			
+		if(map[getY()][getX() - 1].equals("Wall")) {
+			adjancentWalls[3] = true;
+		}
+				
+		return adjancentWalls;
+	}
+	
+	/**
+	 * 
+	 */
+	public String[]	getAdjancentTiles() {
+		
+		String[] adjancentTiles = new String[4];
+		
+		if(getX() - 1 >= 0 && getY() - 1 >= 0) {
+			adjancentTiles[0] = map[getY() - 1][getX()];
+			
+			adjancentTiles[3] = map[getY()][getX() - 1];
+			
+			adjancentTiles[1] = map[getY()][getX() + 1];
+			
+			adjancentTiles[2] = map[getY() + 1][getX()];
+		}else {
+			adjancentTiles[0] = "Caca";
+			
+			adjancentTiles[1] = map[getY()][getX() + 1];
+			
+			adjancentTiles[2] = map[getY() + 1][getX()];
+			
+			adjancentTiles[3] = "Caca";
+		}
+		
+		return adjancentTiles;
 	}
 
 	public String inventoryToFile(){

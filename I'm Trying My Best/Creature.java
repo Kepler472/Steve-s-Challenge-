@@ -29,33 +29,26 @@ public abstract class Creature extends Entity{
 		
 	}
 	
-	/**
-	 * This method returns an array with whether or not there are walls around
-	 * Indexes: 0 = UP, 1 = RIGHT, 2 = DOWN, 3= LEFT 
-	 * @return 
-	 */
 	public boolean[] getAdjancentWalls() {
 		
 		boolean[] adjancentWalls = new boolean[4];
 		
-		if((x - 1) >= 0 && (y-1) >= 0) {
-			if(map[x][y - 1].equals("Wall")) {
-				adjancentWalls[0] = true;
-			}
-			
-			if(map[x - 1][y].equals("Wall")) {
-				adjancentWalls[3] = true;
-			}
-			
-			if(map[x + 1][y].equals("Wall")) {
-				adjancentWalls[1] = true;
-			}
-			
-			if(map[x][y + 1].equals("Wall")) {
-				adjancentWalls[2] = true;
-			}
+		if(map[getY() - 1][getX()].equals("Wall")) {
+			adjancentWalls[0] = true;
+		}			
+	
+		if(map[getY()][getX() + 1].equals("Wall")) {
+			adjancentWalls[1] = true;
 		}
-		
+			
+		if(map[getY() + 1][getX()].equals("Wall")) {
+			adjancentWalls[2] = true;
+		}
+			
+		if(map[getY()][getX() - 1].equals("Wall")) {
+			adjancentWalls[3] = true;
+		}
+				
 		return adjancentWalls;
 	}
 	
@@ -63,27 +56,30 @@ public abstract class Creature extends Entity{
 	 * 
 	 */
 	public String[]	getAdjancentTiles() {
+		
 		String[] adjancentTiles = new String[4];
-		if((x - 1) >= 0 && (y-1) >= 0) {
-			adjancentTiles[0] = map[x][y - 1];
+		
+		if(getX() - 1 >= 0 && getY() - 1 >= 0) {
+			adjancentTiles[0] = map[getY() - 1][getX()];
 			
-			adjancentTiles[3] = map[x - 1][y];
+			adjancentTiles[3] = map[getY()][getX() - 1];
 			
-			adjancentTiles[1] = map[x + 1][y];
+			adjancentTiles[1] = map[getY()][getX() + 1];
 			
-			adjancentTiles[2] = map[x][y + 1];
+			adjancentTiles[2] = map[getY() + 1][getX()];
 		}else {
-			adjancentTiles[0] = " ";
+			adjancentTiles[0] = "Caca";
 			
-			adjancentTiles[3] = " ";
+			adjancentTiles[1] = map[getY()][getX() + 1];
+			
+			adjancentTiles[2] = map[getY() + 1][getX()];
+			
+			adjancentTiles[3] = "Caca";
 		}
-		
-		
-
-
 		
 		return adjancentTiles;
 	}
+	
 	/**
 	 * Checks if there are no walls around the creature
 	 * @param array

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="971.0" styleClass="root1" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="971.0">
+               <children>
+                  <HBox prefHeight="108.0" prefWidth="858.0" styleClass="root4" stylesheets="@style.css" />
+               </children>
+            </HBox>
+            <Label alignment="CENTER" prefHeight="407.0" prefWidth="971.0" style="-fx-font-family: Quicksand; -fx-font-size: 2.5em; -fx-border-width: 0px 0px 0px 0px; -fx-border-color: black; -fx-background-color: transparent; -fx-font-weight: bold;" text="Message of the day" textFill="#f5f5f5">
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" prefHeight="133.0" prefWidth="971.0">
+               <children>
+                  <Button fx:id="exit" alignment="CENTER" mnemonicParsing="false" prefHeight="99.0" prefWidth="178.0" styleClass="button1" stylesheets="@style.css" text="Go!">
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

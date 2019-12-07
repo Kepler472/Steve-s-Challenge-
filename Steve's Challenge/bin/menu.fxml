@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="662.0" prefWidth="971.0" styleClass="root1" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
+   <children>
+      <VBox alignment="CENTER" layoutX="373.0" layoutY="301.0" prefHeight="61.0" prefWidth="225.0">
+         <children>
+            <Button fx:id="settings" mnemonicParsing="false" onAction="#changeToSettingsWindow" prefHeight="61.0" prefWidth="242.0" styleClass="button1" stylesheets="@style.css" text="Settings">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="417.0" layoutY="240.0" prefHeight="61.0" prefWidth="138.0">
+         <children>
+            <Button fx:id="play" mnemonicParsing="false" onAction="#changeToSaveSelectWindow" prefHeight="52.0" prefWidth="137.0" styleClass="buttonPlay" stylesheets="@style.css" text="PLAY">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </VBox>
+      <HBox layoutX="388.0" layoutY="371.0" prefHeight="61.0" prefWidth="197.0">
+         <children>
+            <Button fx:id="myProfile" onAction="#changeToMyProfileWindow" mnemonicParsing="false" prefHeight="54.0" prefWidth="198.0" styleClass="button1" stylesheets="@style.css" text="My Profile">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="364.0" layoutY="432.0" prefHeight="61.0" prefWidth="263.0">
+         <children>
+            <Button fx:id="leaderboard" mnemonicParsing="false" onAction="#changeToLeaderBoardWindow" prefHeight="61.0" prefWidth="256.0" styleClass="button1" stylesheets="@style.css" text="Leader Board">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="771.0" layoutY="562.0" prefHeight="100.0" prefWidth="207.0">
+         <children>
+            <Button fx:id="exit" mnemonicParsing="false" onAction="#showExitDialog" prefHeight="43.0" prefWidth="125.0" styleClass="button1" stylesheets="@style.css" text="Exit">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

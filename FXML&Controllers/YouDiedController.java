@@ -1,0 +1,70 @@
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.*;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+public class YouDiedController  {
+    @FXML
+    private ResourceBundle resources;
+    @FXML
+    private URL location;
+    @FXML
+    private Button no;
+    @FXML
+    private Button exit;
+    @FXML
+    private Button yes;
+
+
+
+
+    public void backToMainMenu(ActionEvent event) throws IOException{
+
+        Parent root = FXMLLoader.load(getClass().getResource("youDied.fxml"));
+        Scene scene = new Scene(root);
+
+        Stage  menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        menu.setScene(scene);
+        menu.show();
+    }
+    public void showExitDialog() {
+
+        Button close = new Button("Go back");
+        Button exit = new Button("Exit");
+
+        Stage popup = new Stage();
+        close.setOnAction(e -> {
+            popup.close();
+        });
+
+        exit.setOnAction(e ->{
+            Platform.exit();
+        });
+        HBox hbox = new HBox(10);
+        hbox.getChildren().addAll(exit, close);
+
+        Scene scene = new Scene(hbox, 150, 100);
+
+        popup.setTitle("Are you sure you want to exit?");
+        popup.setScene(scene);
+        popup.show();
+    }
+    public void handleNewGame(ActionEvent event) {
+
+        Game game = new Game("levelTest.txt");
+
+        Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        game.start(primaryStage);
+    }
+}

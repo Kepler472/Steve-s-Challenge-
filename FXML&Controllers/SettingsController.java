@@ -30,7 +30,7 @@ public class SettingsController extends Application{
     }
     
     /**
-     * This method changes the scene to the Settings window
+     * This method changes the scene to the keybindings window
      * @param event
      * @throws IOException
      */
@@ -44,9 +44,14 @@ public class SettingsController extends Application{
     	bindings.setScene(scene);
     	bindings.show();
     }
+    /**
+     * This method changes the scene to the Main Menu window
+     * @param event
+     * @throws IOException
+     */
     public void backToMainMenu(ActionEvent event) throws IOException{
     	
-    	Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
     	Scene scene = new Scene(root);
     	
     	Stage  menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -54,7 +59,12 @@ public class SettingsController extends Application{
     	menu.setScene(scene);
     	menu.show();
     }
-    
+
+    /**
+     * This method strats the Settings menu
+     * @param primaryStage
+     * @throws IOException
+     */
     public void start(Stage primaryStage) throws IOException{
     	Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
     	Scene scene = new Scene(root);

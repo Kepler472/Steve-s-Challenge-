@@ -13,10 +13,15 @@ public class KeyBindingController {
 	
 	@FXML
 	private Button back;
-	
+
+	/**
+	 * This method changes the scene to the Main Menu window
+	 * @param event
+	 * @throws IOException
+	 */
 	public void backToMainMenu(ActionEvent event) throws IOException{
     	
-    	Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
     	Scene scene = new Scene(root);
     	
     	Stage  menu = (Stage) ((Node)event.getSource()).getScene().getWindow();

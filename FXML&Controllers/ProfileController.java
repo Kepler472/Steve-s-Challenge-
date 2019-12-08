@@ -20,62 +20,72 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class ProfileController implements Initializable{
-	
-	@FXML
-	public Button back;
-	
-	@FXML
-	public Label username;
-	
-	@FXML
-	public Label highscore;
-	
-	@FXML
-	public TableView<Time> levelTimesTable;
-	
-	@FXML
-    public TableColumn<Time, Integer> level;
-	
-	@FXML
-	public TableColumn<Time, Integer> time;
-	
-	@FXML
-	public TableColumn<Time, Integer> score;
-	
-	private ObservableList<Time> observableList = FXCollections.observableArrayList();
-	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		
-		UserProfile user = LoginController.getUserProfile();
-		
-		level.setCellValueFactory(new PropertyValueFactory<>("Level"));
-		time.setCellValueFactory(new PropertyValueFactory<>("Time"));
-		score.setCellValueFactory(new PropertyValueFactory<>("Score"));
 
-		username.setText(LoginController.getUserProfile().getUsername());
-		highscore.setText(String.valueOf(LoginController.getUserProfile().getHighScore()));
-		
-		int[] list = user.getLevelTimesArray();
-		
-		for(int i = 0; i < list.length; i++) {
-			if(list[i] != 0) {
-				observableList.add(new Time(i, list[i], user.getLevelHighScore(i)));
-			}
-		}
-		
-		levelTimesTable.setItems(observableList);
-		
-	}
-	
-	public void backToMainMenu(ActionEvent event) throws IOException{
-    	
-    	Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-    	Scene scene = new Scene(root);
-    	
-    	Stage  menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	
-    	menu.setScene(scene);
-    	menu.show();
+    @FXML
+    public Button back;
+
+    @FXML
+    public Label username;
+
+    @FXML
+    public Label highscore;
+
+    @FXML
+    public TableView<Time> levelTimesTable;
+
+    @FXML
+    public TableColumn<Time, Integer> level;
+
+    @FXML
+    public TableColumn<Time, Integer> time;
+
+    @FXML
+    public TableColumn<Time, Integer> score;
+
+    private ObservableList<Time> observableList = FXCollections.observableArrayList();
+
+    /**
+     * This method initialize the table view with the values from UserProfile class
+     * @param location
+     * @param resources
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        UserProfile user = LoginController.getUserProfile();
+
+        level.setCellValueFactory(new PropertyValueFactory<>("Level"));
+        time.setCellValueFactory(new PropertyValueFactory<>("Time"));
+        score.setCellValueFactory(new PropertyValueFactory<>("Score"));
+
+        username.setText(LoginController.getUserProfile().getUsername());
+        highscore.setText(String.valueOf(LoginController.getUserProfile().getHighScore()));
+
+        int[] list = user.getLevelTimesArray();
+
+        for(int i = 0; i < list.length; i++) {
+            if(list[i] != 0) {
+                observableList.add(new Time(i, list[i], user.getLevelHighScore(i)));
+            }
+        }
+
+        levelTimesTable.setItems(observableList);
+
+    }
+
+    /**
+     * This method changes the scene to the Main Menu window
+     * @param event
+     * @throws IOException
+     */
+    public void backToMainMenu(ActionEvent event) throws IOException{
+
+        Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+        Scene scene = new Scene(root);
+
+        Stage  menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        menu.setScene(scene);
+        menu.show();
     }
 }

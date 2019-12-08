@@ -28,12 +28,15 @@ public class LeaderBoardController implements Initializable{
 	public TableColumn<UserProfile, Integer> highscore;
 	
 	private ObservableList<UserProfile> observableList = FXCollections.observableArrayList();
-	
+
+	/**
+	 * This method initialize the table view with the values from leaderboard class
+	 * @param location
+	 * @param resources
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		LeaderBoard board = Game.getLeaderBoard();
-		
+
 		username.setCellValueFactory(new PropertyValueFactory<>("Username"));
 		highscore.setCellValueFactory(new PropertyValueFactory<>("HighScore"));
 		
@@ -44,7 +47,12 @@ public class LeaderBoardController implements Initializable{
 		
 		leaderboardTable.setItems(observableList);
 	}
-	
+
+	/**
+	 * This method changes the scene to the Main Menu window
+	 * @param event
+	 * @throws IOException
+	 */
 	public void backToMainMenu(ActionEvent event) throws IOException{
     	
     	Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));

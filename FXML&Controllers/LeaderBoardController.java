@@ -32,10 +32,12 @@ public class LeaderBoardController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		LeaderBoard board = Game.getLeaderBoard();
+		
 		username.setCellValueFactory(new PropertyValueFactory<>("Username"));
 		highscore.setCellValueFactory(new PropertyValueFactory<>("HighScore"));
 		
-		ArrayList<UserProfile> aux = LoginController.getLeaderBoard().toArray();
+		ArrayList<UserProfile> aux = board.toArray();
 		for(int i = 0; i < aux.size(); i++) {
 			observableList.add(aux.get(i));
 		}
@@ -45,7 +47,7 @@ public class LeaderBoardController implements Initializable{
 	
 	public void backToMainMenu(ActionEvent event) throws IOException{
     	
-    	Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+    	Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
     	Scene scene = new Scene(root);
     	
     	Stage  menu = (Stage) ((Node)event.getSource()).getScene().getWindow();

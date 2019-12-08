@@ -14,7 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class MenuController extends Application{
+public class MenuController {
 	
     @FXML
     private ResourceBundle resources;
@@ -38,6 +38,7 @@ public class MenuController extends Application{
      */
     public void changeToSaveSelectWindow(ActionEvent event) throws IOException {
     	//should be a play game function here
+    	
     	Parent root = FXMLLoader.load(getClass().getResource("loadPage.fxml"));
     	Scene scene = new Scene(root);
     	
@@ -81,7 +82,7 @@ public class MenuController extends Application{
     	Parent settingsWindow = FXMLLoader.load(getClass().getResource("settings.fxml"));
     	Scene scene = new Scene(settingsWindow);
     	
-    	Stage settings = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	Stage settings = (Stage)((Node)event.getSource()).getScene().getWindow();
     	
     	settings.setScene(scene);
     	settings.show();
@@ -114,23 +115,5 @@ public class MenuController extends Application{
     	
     	myProfile.setScene(scene);
     	myProfile.show();
-    }
-  
-    public void start(Stage primaryStage) throws IOException {
-    	
-    	Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-    	Scene scene = new Scene(root);
-    	
-    	primaryStage.setScene(scene);
-    	primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent ->{
-    		if(keyEvent.getCode() == KeyCode.ESCAPE) {
-    			showExitDialog();
-    		}
-    	});
-    	primaryStage.show();
-    }
-    
-    public static void main(String[] args) {
-    	launch(args);
     }
 }

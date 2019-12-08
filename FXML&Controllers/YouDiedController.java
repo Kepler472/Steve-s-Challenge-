@@ -24,12 +24,9 @@ public class YouDiedController  {
     @FXML
     private Button yes;
 
-
-
-
     public void backToMainMenu(ActionEvent event) throws IOException{
 
-        Parent root = FXMLLoader.load(getClass().getResource("youDied.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
         Scene scene = new Scene(root);
 
         Stage  menu = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -59,12 +56,15 @@ public class YouDiedController  {
         popup.setScene(scene);
         popup.show();
     }
-    public void handleNewGame(ActionEvent event) {
-
-        Game game = new Game("levelTest.txt");
-
-        Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        game.start(primaryStage);
-    }
+    
+    public void handleLevelRestartButton(ActionEvent event) throws IOException{
+		
+		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		
+		Parent root = FXMLLoader.load(getClass().getResource("loadingScreen.fxml"));
+    	Scene scene = new Scene(root);
+    	
+    	primaryStage.setScene(scene);
+    	primaryStage.show();
+	}
 }

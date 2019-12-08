@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +24,11 @@ public class YouDiedController  {
     @FXML
     private Button yes;
 
+    /**
+     * This method changes the scene to the Main Menu window
+     * @param event
+     * @throws IOException
+     */
     public void backToMainMenu(ActionEvent event) throws IOException{
 
         Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
@@ -32,7 +39,10 @@ public class YouDiedController  {
         menu.setScene(scene);
         menu.show();
     }
-    
+
+    /**
+     * This method asks the user if to go back or exit the game
+     */
     public void showExitDialog() {
 
         Button close = new Button("Go back");
@@ -55,15 +65,20 @@ public class YouDiedController  {
         popup.setScene(scene);
         popup.show();
     }
-    
+
+    /**
+     * This method restarts the game to the last save
+     * @param event
+     * @throws IOException
+     */
     public void handleLevelRestartButton(ActionEvent event) throws IOException{
-		
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		
-		Parent root = FXMLLoader.load(getClass().getResource("loadingScreen.fxml"));
-    	Scene scene = new Scene(root);
-    	
-    	primaryStage.setScene(scene);
-    	primaryStage.show();
-	}
+
+        Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        Parent root = FXMLLoader.load(getClass().getResource("loadingScreen.fxml"));
+        Scene scene = new Scene(root);
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }

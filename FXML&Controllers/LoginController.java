@@ -46,7 +46,7 @@ public class LoginController extends Application{
 
     /**
      * This method outputs the leadrboard
-     * @return
+     * @return the leaderBoard
      */
     public static LeaderBoard getLeaderBoard() {
         return leaderBoard;
@@ -54,7 +54,7 @@ public class LoginController extends Application{
 
     /**
      * This method checks if there is a valid username
-     * @return
+     * @return the User Profile
      */
     public static UserProfile getUserProfile() {
         if(user != null) {

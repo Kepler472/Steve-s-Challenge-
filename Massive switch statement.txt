@@ -1,0 +1,76 @@
+switch (event.getCode()) {
+		
+	    case RIGHT:
+	    	// Right key was pressed. So move the player right by one cell.
+	    	if(!map[player.getY()][player.getX() + 1].equals("Wall")){
+	    		player.setX(1);
+	    	} else {
+	    		System.out.println("Blocked");
+	    	}
+	    	if(map[player.getY()][player.getX()].equals("Token")) {
+	    		player.addToken();
+	    		System.out.println("Token get.");
+	    		System.out.println("Total tokens: " + player.getToken());
+	    		map[player.getY()][player.getX()] = "Floor";
+	    	}
+        	break;	
+	    case LEFT:
+	    	if(!map[player.getY()][player.getX() - 1].equals("Wall")){
+	    		player.setX(-1);
+	    	} else {
+	    		System.out.println("Blocked");
+	    	}
+	    	if(map[player.getY()][player.getX()].equals("Token")) {
+	    		player.addToken();
+	    		System.out.println("Token get.");
+	    		System.out.println("Total tokens: " + player.getToken());
+	    		map[player.getY()][player.getX()] = "Floor";
+	    	}
+	    	break;
+	    case UP:
+	    	if(!map[player.getY() - 1][player.getX()].equals("Wall")){
+    			player.setY(-1);
+	    	} else {
+	    		System.out.println("Blocked");
+	    	}
+	    	if(map[player.getY()][player.getX()].equals("Token")) {
+	    		player.addToken();
+	    		System.out.println("Token get.");
+	    		System.out.println("Total tokens: " + player.getToken());
+	    		map[player.getY()][player.getX()] = "Floor";
+	    	}
+	    	break;
+	    case DOWN:
+	    	if(!map[player.getY() + 1][player.getX()].equals("Wall")){
+	    		String tile =map[player.getY() + 1][player.getX()];
+	    		if(tile.contains("DT")) {
+	    			int tokenNeeded= Character.getNumericValue(tile.charAt(2));
+	    			System.out.println(tokenNeeded);
+	    			if(player.hasEnoughTokens(tokenNeeded)) {
+	    				map[player.getY() + 1][player.getX()] = "Floor";
+	    				System.out.println("Door opens.");
+	    				player.setY(1);
+	    			}
+	    		} else {
+	    			player.setY(1);
+	    		}
+				
+	    	} else {
+	    		System.out.println("Blocked");
+	    	}
+	    	if(map[player.getY()][player.getX()].equals("Token")) {
+	    		player.addToken();
+	    		System.out.println("Token get.");
+	    		System.out.println("Total tokens: " + player.getToken());
+	    		map[player.getY()][player.getX()] = "Floor";
+	    	}
+        default:
+        	// Do nothing
+        	break;
+	}
+	
+	// Redraw game as the player may have moved.
+	drawGame();
+	
+	// Consume the event. This means we mark it as dealt with. This stops other GUI nodes (buttons etc) responding to it.
+	event.consume();

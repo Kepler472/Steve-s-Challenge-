@@ -1,0 +1,29 @@
+15 15
+***************
+**B     *WWWKT*
+*T*   ***WWW*F*
+* P*   **WW*PF*
+*D*TD*   W*T***
+*     *  *    *
+*     * *     *
+*  *  * W  * T* 
+*     * T     *     
+*    * W *    *
+*   *** FF*T  *
+* **   WFF**TD*
+*T*  * *F*FF*G*
+**B    *    K**
+***************
+START ,7,7,
+DOOR,WHITE,4,1,
+DOOR,BLUE,4,4,
+DOOR,TOKEN,11,13,8
+KEY,BLUE,13,12,
+KEY,WHITE,1,12,
+BOOT,FIRE,13,2,
+BOOT,WATER,1,2,
+ENEMY,STRAIGHT,RIGHT,13,8,
+ENEMY,STRAIGHT,RIGHT,1,2,
+ENEMY,WALL,LEFT,8,12,
+TELE,3,12,3,2,
+TELE,3,2,3,12,

@@ -1,0 +1,27 @@
+15 15
+***************
+* *FFF*      B*
+*   *F*       *
+* W *F*  ***  *
+* W *F*  WT*  *
+* W *F*  ***  *
+* W *F*       *
+* W *F*       *
+*   *FF ********
+****T   *    B*
+*     * WW*WW**
+*  ** *F*F*FF *
+**    **    *G*
+*T     WW*W****
+***************
+START,8,7,
+ENEMY,STRAIGHT,RIGHT,9,9,
+ENEMY,STRAIGHT,DOWN,5,13,
+ENEMY,DUMB,8,1
+ENEMY,DUMB,12,1
+ENEMY,WALL,UP,6,8
+DOOR,RED,13,2,
+DOOR,TOKEN,11,13,1,
+KEY,RED,1,1,
+BOOT,FIRE,9,13,
+BOOT,WATER,1,13,

@@ -1,0 +1,41 @@
+20 20 
+********************
+*P*    T* *T      T*
+* DT *  * *        *
+***  *  * *  ****  *
+*    *  * *  WWK*  *
+*    *  * D  ****  *
+*    *  * *        *
+*B  F   * *T      T*
+****WW*** ******W***
+* T        T       *
+*******D* ****B*****
+*T     T* *   W    *
+* **D** * *        *
+* *WWW* * *  * **  *
+* *FFF* * *  *  *  *
+* *FGF* * *  *     *
+* *FFF* * *        *
+* ***** * *    *****
+*T     T* *K  *K  P*
+********************
+START,1,9,
+DOOR,BLUE,2,2,
+KEY,BLUE,4,15,
+DOOR,WHITE,5,10,
+BOOT,FIRE,7,1,
+DOOR,YELLOW,10,7,
+BOOT,WATER,10,14,
+DOOR,TOKEN,12,4,11
+KEY,YELLOW,18,11,
+KEY,WHITE,18,15,
+TELE,18,18,1,1,
+TELE,1,1,18,18,
+ENEMY,STRAIGHT,RIGHT,11,1,
+ENEMY,STRAIGHT,RIGHT,18,1,
+ENEMY,STRAIGHT,RIGHT,1,4,
+ENEMY,STRAIGHT,RIGHT,2,6,
+ENEMY,STRAIGHT,RIGHT,9,11,
+ENEMY,STRAIGHT,LEFT,9,10,
+ENEMY,WALL,RIGHT,7,14,
+
